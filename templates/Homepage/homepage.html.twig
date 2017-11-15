@@ -12,11 +12,18 @@
         L'utilisateur actuelement connecté doit être en gras.
         Au clique sur un utilisateur je suis redirigé sur sa page de profile
      #}
+    {% if users %}
+        <ul>
+            {% for user in users %}
+                <li>
+                    <a href="profile/{{ user.getId() }}">
+                        {{ user.getUsername() }}
+                        {{ user.getFirstName() }}
+                        {{ user.getLastName() }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
-    <ul>
-            <li>
-                <strong><a href="/profile/1">John Doe - user@exemple.com</a></strong>
-                <a href="/profile/2">Foo Bar - foo@exemple.com</a>
-            </li>
-    </ul>
 {% endblock %}
